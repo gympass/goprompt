@@ -76,8 +76,8 @@ func (s *Select) Run() (*SelectResult, error) {
 	if s.Description != "" {
 		_, _ = fmt.Fprintln(s.rl, s.Description)
 	}
-
-	_, _ = fmt.Fprintf(s.rl, "%s [Use %s to select, enter to confirm]\n", s.Label, glyphUpDown)
+	arrowsHint := fmt.Sprintf("[Use %s to select, enter to confirm]", glyphUpDown)
+	_, _ = fmt.Fprintf(s.rl, "%s %s\n", s.Label, styleFaint(arrowsHint))
 
 	_, _ = fmt.Fprint(s.rl, hideCursor)
 	defer func() {

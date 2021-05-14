@@ -7,7 +7,11 @@ import (
 
 type attribute int
 
-const reset attribute = 0
+const (
+	reset attribute = iota
+	_
+	faint
+)
 const (
 	black attribute = iota + 30
 	red
@@ -31,6 +35,7 @@ var (
 	styleCyan    = styler(cyan)
 	styleWhite   = styler(white)
 	styleNone    = styler(reset)
+	styleFaint   = styler(faint)
 )
 
 func styler(attr attribute) func(string) string {
