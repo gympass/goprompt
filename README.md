@@ -17,7 +17,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/heyvito/goprompt"
+	"github.com/Gympass/goprompt"
 )
 
 func main() {
@@ -55,7 +55,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/heyvito/goprompt"
+	"github.com/Gympass/goprompt"
 )
 
 func main() {

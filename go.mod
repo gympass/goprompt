@@ -1,4 +1,4 @@
-module github.com/heyvito/goprompt
+module github.com/Gympass/goprompt
 
 go 1.16
 
