@@ -139,12 +139,15 @@ func (p *Prompt) setStatus(status int) {
 }
 
 func (p *Prompt) prepare() {
+	style := styleNone
 	prefix := glyphPrompt
 	switch p.lastState {
 	case statusOK:
 		prefix = glyphCheck
+		style = styleGreen
 	case statusError:
 		prefix = glyphError
+		style = styleMagenta
 	}
-	p.rl.SetPrompt(fmt.Sprintf("%s %s: ", prefix, p.Label))
+	p.rl.SetPrompt(fmt.Sprintf("%s %s: ", style(prefix), p.Label))
 }

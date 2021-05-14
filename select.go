@@ -105,7 +105,7 @@ func (s *Select) cleanAndCommit() {
 		_, _ = fmt.Fprint(s.rl, moveUp)
 		_, _ = fmt.Fprint(s.rl, clearLine)
 	}
-	_, _ = fmt.Fprint(s.rl, fmt.Sprintf("%s %s: %s\n", glyphCheck, s.Label, s.Options[s.currentIndex]))
+	_, _ = fmt.Fprint(s.rl, fmt.Sprintf("%s %s: %s\n", styleGreen(glyphCheck), s.Label, s.Options[s.currentIndex]))
 
 }
 
@@ -116,7 +116,7 @@ func (s *Select) render() {
 
 	for i, v := range s.Options {
 		if i == s.currentIndex {
-			_, _ = fmt.Fprintf(s.rl, "  %s %s\n", glyphSelection, v)
+			_, _ = fmt.Fprintf(s.rl, "  %s %s\n", styleCyan(glyphSelection), styleCyan(v))
 		} else {
 			_, _ = fmt.Fprintln(s.rl, "    "+v)
 		}
