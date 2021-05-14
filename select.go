@@ -105,7 +105,11 @@ func (s *Select) cleanAndCommit() {
 		_, _ = fmt.Fprint(s.rl, moveUp)
 		_, _ = fmt.Fprint(s.rl, clearLine)
 	}
-	_, _ = fmt.Fprint(s.rl, fmt.Sprintf("%s %s: %s\n", styleGreen(glyphCheck), s.Label, s.Options[s.currentIndex]))
+	colon := ""
+	if !strings.HasSuffix(s.Label, "?") {
+		colon = ":"
+	}
+	_, _ = fmt.Fprint(s.rl, fmt.Sprintf("%s %s%s %s\n", styleGreen(glyphCheck), s.Label, colon, s.Options[s.currentIndex]))
 
 }
 
