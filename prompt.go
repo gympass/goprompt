@@ -64,6 +64,7 @@ func (p *Prompt) Run() (*PromptResult, error) {
 	if ex, err := readline.NewEx(c); err != nil {
 		return nil, err
 	} else {
+		defer ex.Close()
 		p.rl = ex
 	}
 	if p.Description != "" {

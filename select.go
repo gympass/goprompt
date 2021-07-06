@@ -70,6 +70,7 @@ func (s *Select) Run() (*SelectResult, error) {
 	if ex, err := readline.NewEx(c); err != nil {
 		return nil, err
 	} else {
+		defer ex.Close()
 		s.rl = ex
 	}
 
